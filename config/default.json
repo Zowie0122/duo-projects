@@ -1,3 +1,4 @@
 {
-  "mongoURL": "mongodb+srv://JiayiMin:DuoProject!@prochat-hw3mb.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURL": "mongodb+srv://JiayiMin:DuoProject!@prochat-hw3mb.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken"
 }
