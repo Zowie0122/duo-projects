@@ -3,7 +3,7 @@ const router = express.Router();
 const gravatar = require("gravatar");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { check, validationResult } = require("express-validator");
+const { check, validationResult } = require("express-validator/check");
 const config = require("config");
 
 // @route  POST api/users
@@ -11,9 +11,9 @@ const config = require("config");
 // @access  public access
 
 //######TEST
-// router.get("/", (req, res) => {
-//   res.send("User route");
-// });
+router.get("/", (req, res) => {
+  res.send("User route");
+});
 
 // router.post("/", (req, res) => {
 //   console.log(req.body);

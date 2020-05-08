@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 
-const Pofile
-
 const Schema = mongoose.Schema;
 ​
 // Create Schema
