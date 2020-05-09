@@ -2,20 +2,30 @@ const express = require("express");
 const router = express.Router();
 const auth = require("../../middleware/auth");
 const { check, validationResult } = require("express-validator/check");
+const User = require("../../models/User");
+// const Profile = require("../../models/Profile.js");
+const config = require("config");
+
+// router.get("/me", (req, res) => {
+//   res.json("Hi");
+// });
 
 router.get("/me", auth, async (req, res) => {
   try {
-    const profile = await profile
-      .findOne({ user: req.user.id })
-      .populate("user", ["name", "avatar"]);
+    const profile = await Profile.findOne({
+      user: req.user.id,
+    }).populate("user", ["name", "avatar"]);
+
     if (!profile) {
       return res.status(400).json({ msg: "There is no profile for this user" });
+    } else {
+      res.json(profile);
     }
-
-    res.json(profile);
   } catch (err) {
+    console.log(req.user.id);
+    console.log("Profile");
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).send("Profile Not found error");
   }
 });
 
@@ -127,6 +137,98 @@ router.delete("/", async (req, res) => {
     res.json({ meg: "User removed" });
   } catch (err) {
     res.status(500).send("Server Error");
+  }
+});
+
+// Experiences
+router.put("/experiece", async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ error: errors.array });
+  }
+  const { title, company, location, from, to, current, description } = req.body;
+
+  const newExp = {
+    title,
+    company,
+    location,
+    from,
+    to,
+    current,
+    description,
+  };
+  try {
+    const profile = await Profile.findOne({ user: req.user.id });
+    profile.experience.unshift(newExp);
+    await profile.save();
+    res.json(profile);
+  } catch (err) {
+    res.status(500).send("Server Error");
+  }
+});
+
+router.delete("/experience/:exp_id", async (req, res) => {
+  try {
+    const profile = await Profile.findOne({ user: req.user.id });
+    const removeIndex = profile.experience
+      .map((item) => item.id)
+      .indexOf(req.params.exp_id);
+
+    profile.experience.splice(removeIndex, 1);
+    await profile.save();
+    res.json(profile);
+  } catch (err) {
+    res.status(500).send("Server Error");
+  }
+});
+
+// Education
+router.put("/education", async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ error: errors.array });
+  }
+  const {
+    school,
+    degree,
+    fieldofstudy,
+    from,
+    to,
+    current,
+    description,
+  } = req.body;
+
+  const newEfu = {
+    school,
+    degree,
+    fieldofstudy,
+    from,
+    to,
+    current,
+    description,
+  };
+  try {
+    const profile = await Profile.findOne({ user: req.user.id });
+    profile.education.unshift(newEdu);
+    await profile.save();
+    res.json(profile);
+  } catch (err) {
+    res.status(500).send("Education Put ID Error");
+  }
+});
+
+router.delete("/education/:edu_id", async (req, res) => {
+  try {
+    const profile = await Profile.findOne({ user: req.user.id });
+    const removeIndex = profile.education
+      .map((item) => item.id)
+      .indexOf(req.params.exp_id);
+
+    profile.education.splice(removeIndex, 1);
+    await profile.save();
+    res.json(profile);
+  } catch (err) {
+    res.status(500).send("Education Delete ID Error");
   }
 });
 

@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { check, validationResult } = require("express-validator/check");
 const config = require("config");
-
+const User = require("../../models/User");
 // @route  POST api/users
 // @desc    Register user
 // @access  public access
@@ -19,8 +19,6 @@ router.get("/", (req, res) => {
 //   console.log(req.body);
 //   res.send("Post");
 // });
-
-const User = require("../../models/User");
 
 router.post(
   "/",
@@ -50,7 +48,7 @@ router.post(
       const avatar = gravatar.url(email, {
         s: "200",
         r: "pg",
-        d: "mm",
+        d: "404",
       });
       user = new User({
         name,
@@ -62,6 +60,9 @@ router.post(
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(password, salt);
       await user.save();
+
+      // res.send("User registered");
+
       const payload = {
         user: {
           id: user.id,
@@ -71,8 +72,8 @@ router.post(
       jwt.sign(
         payload,
         config.get("jwtSecret"),
-        { expiresIn: 3600 },
-        () => (err, token) => {
+        { expiresIn: 360000 },
+        (err, token) => {
           if (err) throw err;
           res.json({
             token,
@@ -88,3 +89,11 @@ router.post(
 );
 
 module.exports = router;
+
+// test messages
+
+// {
+//   "name":"Zowie",
+//   "password": "sssssss",
+//   "email": "minjiayi@gmail.com"
+//   }
