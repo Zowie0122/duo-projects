@@ -1,15 +1,20 @@
 const express = require("express");
+const axios = require("axios");
+const config = require("config");
 const router = express.Router();
 const auth = require("../../middleware/auth");
-const { check, validationResult } = require("express-validator/check");
+const { check, validationResult } = require("express-validator");
+// bring in normalize to give us a proper url, regardless of what user entered
+const normalize = require("normalize-url");
+const checkObjectId = require("../../middleware/checkObjectId");
+
+const Profile = require("../../models/Profile");
 const User = require("../../models/User");
-// const Profile = require("../../models/Profile.js");
-const config = require("config");
+const Post = require("../../models/Post");
 
 // router.get("/me", (req, res) => {
 //   res.json("Hi");
 // });
-
 router.get("/me", auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({
@@ -18,14 +23,12 @@ router.get("/me", auth, async (req, res) => {
 
     if (!profile) {
       return res.status(400).json({ msg: "There is no profile for this user" });
-    } else {
-      res.json(profile);
     }
+
+    res.json(profile);
   } catch (err) {
-    console.log(req.user.id);
-    console.log("Profile");
     console.error(err.message);
-    res.status(500).send("Profile Not found error");
+    res.status(500).send("Server Error");
   }
 });
 
