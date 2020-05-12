@@ -31,7 +31,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   if(isAuthenticated) {
     return <Redirect to='/dashboard' />
   }
-  
+
   return (
     <Fragment>
       <h1 className="large text-primary">Sign Up</h1>
@@ -44,6 +44,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
              name="name" 
              value={name}
              onChange={e => onChange(e)}
+             required
              
           />
         </div>
@@ -54,6 +55,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             name="email" 
             value={email}
             onChange={e => onChange(e)}
+            required
          
           />
           <small className="form-text"
@@ -68,8 +70,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             name="password"
             value={password}
             onChange={e => onChange(e)}
-           /*  required
-            minLength="6" */
+            required
+            minLength="6" 
           />
         </div>
         <div className="form-group">
@@ -79,8 +81,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             name="password2"
             value={password2}
             onChange={e => onChange(e)}
-            /* required
-            minLength="6" */
+            required
+            minLength="6"
           />
         </div>
         <input type="submit" className="btn btn-primary" value="Register" />
