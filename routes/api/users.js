@@ -91,25 +91,3 @@ router.post(
 
 module.exports = router;
 
-// test messages
-
-// {
-//   "name":"Zowie",
-//   "password": "sssssss",
-//   "email": "minjiayi@gmail.com"
-//   }
-
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWViNzUzMWI5MThlMzcwOWU2NjRjNGE3In0sImlhdCI6MTU4OTA3MjY2OCwiZXhwIjoxNTg5NDMyNjY4fQ.fRHrWaYfZRPJkOX16m9GAhLYmwuaPz1x2mxzk-VylZ4
-// {
-//   "name":"Hi",
-//   "password": "sssssss",
-//   "email": "hi@gmail.com"
-//   }
-
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWViYzkyNThjYTRjNTYwNmIyNDYxNzY1In0sImlhdCI6MTU4OTQxNjUzNywiZXhwIjoxNTg5Nzc2NTM3fQ.j_hIVgvE_SrI3PT1voZxKpdd9XjbXyRF1KXHuN710cc
-
-// {
-//   "name":"Hirr",
-//   "password": "sssssss",
-//    "email": "hidd@gmail.com"
-//   }
