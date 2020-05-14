@@ -7,8 +7,8 @@
   "scripts": {
     "start": "node server",
     "server": "nodemon server",
-    "client": "yarn start --prefix client",
-    "dev": "concurrently \"yarn run server\" \"yarn run client\""
+    "client": "cd client && yarn start",
+    "dev": "concurrently \"yarn client\" \"yarn server\""
   },
   "author": "Garrett&Zowie(CC12)",
   "license": "MIT",

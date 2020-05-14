@@ -30,3 +30,27 @@
 "location":"test1",
 "description": "test1"
 }
+
+{
+"skills": [
+"test1"
+],
+"\_id": "5ebce7d15154480ffbd0795b",
+"user": "5ebce5375154480ffbd0795a",
+"company": "test1",
+"status": "test1",
+"experience": [],
+"education": [
+{
+"current": false,
+"_id": "5ebcecff3aa6791167e0d7c2",
+"school": "test1",
+"degree": "test1",
+"fieldofstudy": "test1",
+"from": "2020-02-01T15:00:00.000Z",
+"description": "test1"
+}
+],
+"date": "2020-05-14T06:40:17.300Z",
+"\_\_v": 3
+}
