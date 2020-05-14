@@ -107,6 +107,8 @@ router.post(
   },
 );
 
+// get all profiles
+
 router.get("/", async (req, res) => {
   try {
     const profiles = await Profile.find().populate("user", ["name", "avatar"]);
@@ -117,6 +119,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// get user by id,
 router.get("/user/:user_id", async (req, res) => {
   try {
     console.log(req.params.user_id);
@@ -124,54 +127,77 @@ router.get("/user/:user_id", async (req, res) => {
       user: req.params.user_id,
     }).populate("user", ["name", "avatar"]);
     if (!profile) {
-      return res.status(500).json({ msg: "There is no profile for this user" });
+      return res.status(400).json({ msg: "Profile not found" });
     }
-
     res.json(profile);
   } catch (err) {
-    console.error(err.message);
+    if (err.message.indexOf("Cast to ObjectId failed") !== -1)
+      return res.status(400).json({ msg: "Profile not found" });
     res.status(500).send("Server Error");
   }
 });
 
-// BUG BUG
-// router.delete("/", async (req, res) => {
-//   try {
-//     console.log(req);
-//     // await Profile.findOneAndRemove({ user: req.user.id });
-//     // await User.findOneAndRemove({ _id: req.user.id });
-//     res.json({ meg: "User removed" });
-//   } catch (err) {
-//     res.status(500).send("Server Error");
-//   }
-// });
-
-// Experiences
-router.put("/experiece", async (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ error: errors.array });
-  }
-  const { title, company, location, from, to, current, description } = req.body;
-
-  const newExp = {
-    title,
-    company,
-    location,
-    from,
-    to,
-    current,
-    description,
-  };
+// delete a profile
+router.delete("/", auth, async (req, res) => {
   try {
-    const profile = await Profile.findOne({ user: req.user.id });
-    profile.experience.unshift(newExp);
-    await profile.save();
-    res.json(profile);
+    console.log(req);
+    await Profile.findOneAndRemove({ user: req.user.id });
+    await User.findOneAndRemove({ _id: req.user.id });
+    res.json({ msg: "User deleted" });
   } catch (err) {
     res.status(500).send("Server Error");
   }
 });
+
+// add or update experiences
+router.put(
+  "/experience",
+  [
+    auth,
+    [
+      check("title", "Title is required").not().isEmpty(),
+      check("company", "Company is required").not().isEmpty(),
+      check("from", "From Date is required").not().isEmpty(),
+    ],
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ error: errors.array });
+    }
+    const {
+      title,
+      company,
+      location,
+      from,
+      to,
+      current,
+      description,
+    } = req.body;
+
+    console.log(req.body);
+
+    const newExp = {
+      title,
+      company,
+      location,
+      from,
+      to,
+      current,
+      description,
+    };
+
+    try {
+      const profile = await Profile.findOne({ user: req.user.id });
+      console.log(newExp);
+      profile.experience.unshift(newExp);
+      await profile.save();
+      res.json(profile);
+    } catch (err) {
+      res.status(500).send("Server Error");
+    }
+  },
+);
 
 router.delete("/experience/:exp_id", async (req, res) => {
   try {
