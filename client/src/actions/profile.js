@@ -49,30 +49,12 @@ export const getProfiles = () => async (dispatch) => {
 };
 
 // get profile by user id
-export const getProfileById = userId => async dispatch => {
+export const getProfileById = (userId) => async (dispatch) => {
   try {
     const res = await axios.get(`/api/profile/user/${userId}`);
 
     dispatch({
       type: GET_PROFILE,
-      payload: res.data,
-    });
-  } catch (err) {
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
-    });
-  }
-};
-
-// get Github repos
-
-export const getGithubRepos = username => async (dispatch) => {
-  try {
-    const res = await axios.get(`/api/profile/github/${username}`);
-    console.log("RES DATA", res.data);
-    dispatch({
-      type: GET_REPOS,
       payload: res.data,
     });
   } catch (err) {
