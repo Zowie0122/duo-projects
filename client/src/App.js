@@ -69,6 +69,7 @@ const App = () => {
                 component={AddEducation}
               />
               <PrivateRoute exact path="/posts" component={Posts} />
+              {/* <Route exact path="/posts/:id" component={Post} /> */}
               <PrivateRoute exact path="/posts/:id" component={Post} />
             </Switch>
           </section>
