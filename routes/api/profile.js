@@ -56,7 +56,7 @@ router.post(
       bio,
       skills,
       status,
-      githubusername,
+      // githubusername,
       youtube,
       twitter,
       instagram,
@@ -71,7 +71,7 @@ router.post(
     if (website) profileFields.website = website;
     if (location) profileFields.location = location;
     if (bio) profileFields.bio = bio;
-    if (githubusername) profileFields.githubusername = githubusername;
+    // if (githubusername) profileFields.githubusername = githubusername;
     if (status) profileFields.status = status;
     if (skills) {
       profileFields.skills = skills.split(",").map((skill) => skill.trim());
@@ -140,6 +140,7 @@ router.get("/user/:user_id", async (req, res) => {
 // delete a profile
 router.delete("/", auth, async (req, res) => {
   try {
+    await Post.deleteMany({ user: req.user.id });
     console.log(req);
     await Profile.findOneAndRemove({ user: req.user.id });
     await User.findOneAndRemove({ _id: req.user.id });
