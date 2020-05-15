@@ -20,7 +20,9 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case GET_PROFILE:
-    case UPDATE_PROFILE:  
+
+    case UPDATE_PROFILE:
+
       return {
         ...state,
         profile: payload,
@@ -29,16 +31,20 @@ export default function (state = initialState, action) {
     case GET_PROFILES:
       return {
         ...state,
-         profiles: payload,
-         loading: false,
-        };  
+
+        profiles: payload,
+        loading: false,
+      };
+
     case PROFILE_ERROR:
       return {
         ...state,
         error: payload,
         loading: false,
         profile: null,
-      };  
+
+      };
+
     case CLEAR_PROFILE:
       return {
         ...state,
@@ -46,12 +52,7 @@ export default function (state = initialState, action) {
         repos: [],
         loading: false,
       };
-/*     case GET_REPOS:
-      return {
-        ...state,
-        repos: payload,
-        loading: false
-      }   */
+
     default:
       return state;
   }
