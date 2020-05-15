@@ -11,8 +11,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
     getProfiles();
   }, [getProfiles]);
 
-  /*   console.log(profiles[0]);
-  console.log(pro); */
+
 
   return (
     <Fragment>
@@ -24,25 +23,22 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
           <p className="lead">
             <i className="fab fa-connectdevelop"> </i>Browse and connect with
             other Professionals
+
           </p>
           <div className="profiles">
             {profiles.length > 0 ? (
-              profiles.map((profile) => (
+              profiles.map(profile => (
                 <ProfileItem key={profile._id} profile={profile} />
               ))
-            ) : (
-              <h4>No profiles found...</h4>
-            )}
+              ) : <h4>No profiles found...</h4> )}
           </div>
-        </Fragment>
-      )}
-    </Fragment>
-  );
+        </Fragment> }
+    </Fragment>;
 };
 
 Profiles.propTypes = {
   getProfiles: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
