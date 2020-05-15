@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
@@ -6,14 +6,17 @@ import ProfileItem from "./ProfileItem";
 import { getProfiles } from "../../actions/profile";
 
 const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
+  // const [pro, setPro] = useState(null);
   useEffect(() => {
     getProfiles();
   }, [getProfiles]);
 
-  console.log(profiles);
+  console.log(profiles[0]);
+  console.log(pro);
+
   return (
     <Fragment>
-      {loading ? (
+      {profiles.length === 0 && loading ? (
         <Spinner />
       ) : (
         <Fragment>

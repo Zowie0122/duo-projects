@@ -35,16 +35,15 @@ export const getProfiles = () => async (dispatch) => {
 
   try {
     const res = await axios.get("/api/profile");
-
+    console.log("RES DATA", res.data);
     dispatch({
       type: GET_PROFILES,
       payload: res.data,
     });
-    console.log(res.data);
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,
-      payload: { msg: err.response, status: err.response },
+      payload: { msg: err.response.statusText, status: err.response.status },
     });
   }
 };
