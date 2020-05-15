@@ -10,9 +10,11 @@ import CommentItem from "../post/CommentItem";
 
 const Post = ({ getPost, post: { post, loading }, match }) => {
   useEffect(() => {
+    console.log(match.params.id);
     getPost(match.params.id);
   }, [getPost, match.params.id]);
 
+  console.log("####", post);
   return loading || post === null ? (
     <Spinner />
   ) : (
