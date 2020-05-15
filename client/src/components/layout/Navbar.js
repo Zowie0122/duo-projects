@@ -48,7 +48,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   return (
     <nav className="navbar bg-dark">
       <h1>
-        <Link to="/">👥ProChat</Link>
+        <Link to="/"><span role="img" aria-label="chat">👥</span>ProChat</Link>
       </h1>
       {!loading && (
         <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>

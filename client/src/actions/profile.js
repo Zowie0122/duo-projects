@@ -8,6 +8,7 @@ import {
   UPDATE_PROFILE,
   CLEAR_PROFILE,
   ACCOUNT_DELETED,
+  //GET_REPOS
 } from "./types";
 
 //Get current users profile
@@ -49,7 +50,7 @@ export const getProfiles = () => async (dispatch) => {
 };
 
 // get profile by user id
-export const getProfileById = (userId) => async (dispatch) => {
+export const getProfileById = userId => async dispatch => {
   try {
     const res = await axios.get(`/api/profile/user/${userId}`);
 
@@ -65,6 +66,24 @@ export const getProfileById = (userId) => async (dispatch) => {
   }
 };
 
+// get Github repos
+
+/* export const getGithubRepos = username => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/profile/github/${username}`);
+    console.log("RES DATA", res.data);
+    dispatch({
+      type: GET_REPOS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+ */
 //create or update profile
 
 export const createProfile = (formData, history, edit = false) => async (
