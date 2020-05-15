@@ -122,5 +122,5 @@ const AddEducation = ({ addEducation, history }) => {
 AddEducation.propTypes = {
   addEducation: PropTypes.func.isRequired,
 };
-
+//delete "with Routher" below?
 export default connect(null, { addEducation })(withRouter(AddEducation));
