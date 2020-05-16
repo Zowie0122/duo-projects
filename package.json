@@ -9,7 +9,7 @@
     "server": "nodemon server",
     "client": "cd client && yarn start",
     "dev": "concurrently \"yarn client\" \"yarn server\"",
-    "heroku-postbuild": "YARN_PRODUCTION=true  yarn add --prefix client && yarn build --prefix client"
+    "heroku-postbuild": "YARN_PRODUCTION=false  yarn add --prefix client && yarn build --prefix client"
   },
   "author": "Garrett&Zowie(CC12)",
   "license": "MIT",
