@@ -7,10 +7,9 @@
   "scripts": {
     "start": "node server",
     "server": "nodemon server",
-    "client": "cd client && yarn start",
-    "dev": "concurrently \"yarn client\" \"yarn server\"",
-    "heroku-postbuild": "YARN_PRODUCTION=false yarn add --prefix client && yarn build --prefix client"
-  
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run client\" \"npm run server\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Garrett&Zowie(CC12)",
   "license": "MIT",
@@ -26,11 +25,9 @@
     "request": "^2.88.2",
     "normalize-url": "^5.0.0"
   },
-
   "engines": {
     "node": "v12.16.1"
   },
-
   "devDependencies": {
     "concurrently": "^5.2.0",
     "nodemon": "^2.0.3"
