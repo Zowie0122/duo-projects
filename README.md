@@ -4,7 +4,7 @@ This was created during my time as a student at Code Chrysalis.
 
 This is a fullstack business networking app that users can create professional profiles, connect with other professionals and create posts.
 
-![Prochat](../client/src/img/SplashPage.png)
+![Prochat](./client/src/img/SplashPage.png)
 
 ## Getting Started
 
