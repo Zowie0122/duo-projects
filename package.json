@@ -19,11 +19,13 @@
     "express": "^4.17.1",
     "express-validator": "^6.4.0",
     "gravatar": "^1.8.0",
+    "html2canvas": "^1.0.0-rc.5",
     "i": "^0.3.6",
     "jsonwebtoken": "^8.5.1",
+    "jspdf": "^1.5.3",
     "mongoose": "^5.9.12",
-    "request": "^2.88.2",
-    "normalize-url": "^5.0.0"
+    "normalize-url": "^5.0.0",
+    "request": "^2.88.2"
   },
   "engines": {
     "node": "v12.16.1"
