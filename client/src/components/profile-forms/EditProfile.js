@@ -81,21 +81,21 @@ const EditProfile = ({
         <div className="form-group">
           <select name="status" value={status} onChange={(e) => onChange(e)}>
           <option value="0">* Select Occupation</option>
-            <option value="Doctor">Doctor</option>
-            <option value="Accountant">Accountant</option>
-            <option value="Entertainer">Entertainer</option>
-            <option value="IT Engineer">IT Engineer</option>
-            <option value="Economist">Economist</option>
-            <option value="Writer">Writer</option>
-            <option value="Engineer">Engineer</option>
-            <option value="Salesman">Salesman</option>
-            <option value="Scientist">Scientist</option>
-            <option value="Athlete">Athlete</option>
+          <option value="Accountant">Accountant</option>
             <option value="Architect">Architect</option>
-            <option value="Manager">Manager</option>
-            <option value="Student or Learning">Student or Learning</option>
+            <option value="Athlete">Athlete</option>
+            <option value="Doctor">Doctor</option>
+            <option value="Economist">Economist</option>
+            <option value="Engineer">Engineer</option>
+            <option value="Entertainer">Entertainer</option>
             <option value="Instructor">Instructor or Teacher</option>
             <option value="Intern">Intern</option>
+            <option value="IT Engineer">IT Engineer</option>
+            <option value="Manager">Manager</option>
+            <option value="Salesman">Salesman</option>
+            <option value="Scientist">Scientist</option>
+            <option value="Student or Learning">Student or Learning</option>
+            <option value="Writer">Writer</option>
             <option value="Other">Other</option>
           </select>
           <small className="form-text">
@@ -147,22 +147,9 @@ const EditProfile = ({
             onChange={(e) => onChange(e)}
           />
           <small className="form-text">
-            Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
+            Please use comma separated values (eg. foreign languages, CPA, sales, Java)
           </small>
         </div>
-        {/* <div className="form-group">
-          <input
-            type="text"
-            placeholder="Github Username"
-            name="githubusername"
-            value={githubusername}
-            onChange={(e) => onChange(e)}
-          />
-          <small className="form-text">
-            If you want your latest repos and a Github link, include your
-            username
-          </small>
-        </div> */}
         <div className="form-group">
           <textarea
             placeholder="A short bio of yourself"
