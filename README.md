@@ -1,6 +1,6 @@
 # ProChat
 
-This was created during my time as a student at Code Chrysalis.
+This was created during our time as students at Code Chrysalis.
 
 This is a fullstack business networking app that users can create professional profiles, connect with other professionals and create posts.
 
@@ -37,6 +37,8 @@ npm run dev
 - [Redux](https://redux.js.org/)
 - [MongoDB](https://www.mongodb.com/)
 - [Heroku](https://www.heroku.com/)
+- [JWT](https://jwt-auth.readthedocs.io/en/develop/)
+
 
 
 ## Contributing
