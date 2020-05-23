@@ -18,7 +18,8 @@ This READ-ME file will help you install this project locally and explain how to 
 2. Install packages
 
 ```bash
-npm install
+yarn install
+yarn dev
 ```
 
 3. Start the server
