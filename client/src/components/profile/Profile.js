@@ -120,7 +120,7 @@ const Profile = ({ getProfileById, profile: { profile }, auth, match }) => {
               )}
             </div>
           </div>
-          <button className="text-primary" onClick={jsPDFGenerator}>Download PDF</button>
+          <button className="btn btn-dark" onClick={jsPDFGenerator}>Download PDF</button>
         </Fragment>
       )}
     </Fragment>
