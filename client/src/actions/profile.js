@@ -66,24 +66,7 @@ export const getProfileById = userId => async dispatch => {
   }
 };
 
-// get Github repos
 
-/* export const getGithubRepos = username => async (dispatch) => {
-  try {
-    const res = await axios.get(`/api/profile/github/${username}`);
-    console.log("RES DATA", res.data);
-    dispatch({
-      type: GET_REPOS,
-      payload: res.data,
-    });
-  } catch (err) {
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
-    });
-  }
-};
- */
 //create or update profile
 
 export const createProfile = (formData, history, edit = false) => async (
