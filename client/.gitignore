@@ -5,8 +5,8 @@
 /.pnp
 .pnp.js
 
-./config/production.json
-./config/default.json
+../config/default.json
+../config/production.json
 # testing
 /coverage
 
