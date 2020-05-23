@@ -100,7 +100,7 @@ const Profile = ({ getProfileById, profile: { profile }, auth, match }) => {
                   ))}
                 </Fragment>
               ) : (
-                <h4>No experience credentials</h4>
+                <h4>No experience</h4>
               )}
             </div>
 
@@ -116,11 +116,11 @@ const Profile = ({ getProfileById, profile: { profile }, auth, match }) => {
                   ))}
                 </Fragment>
               ) : (
-                <h4>No education credentials</h4>
+                <h4>No education</h4>
               )}
             </div>
           </div>
-          <button onClick={jsPDFGenerator}>Download CV</button>
+          <button onClick={jsPDFGenerator}>Download PDF</button>
         </Fragment>
       )}
     </Fragment>
