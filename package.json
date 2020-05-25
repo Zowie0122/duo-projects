@@ -1,9 +1,9 @@
 {
-  "name": "Duo-Project",
+  "name": "prochat",
   "version": "1.0.0",
   "description": "Social network for professionals",
   "main": "server.js",
-  "repository": "https://github.com/Zowie0122/duo-projects.git",
+  "repository": "https://github.com/Zowie0122/prochat.git",
   "scripts": {
     "start": "node server",
     "server": "nodemon server",
