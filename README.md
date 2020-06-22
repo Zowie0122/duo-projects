@@ -51,7 +51,7 @@ npm run dev
 ### (Name - Role - GitHub username)
 
 - Zowie Min - Full Stack Engineer - https://github.com/Zowie0122
-- Garrett Chun - Full Stack Engineer - https://github.com/Kapakahi
+- Garrett Chun - Full Stack Engineer - https://github.com/KapakahiCoder
 
 
 ## License
