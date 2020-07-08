@@ -6,6 +6,9 @@ This is a fullstack business networking app that users can create professional p
 
 ![Prochat](./client/src/img/SplashPage.png)
 
+## Visit Prochat
+https://mighty-wave-70966.herokuapp.com/
+
 ## Getting Started
 
 This READ-ME file will help you install this project locally and explain how to interact with it.
