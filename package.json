@@ -24,7 +24,7 @@
     "jsonwebtoken": "^8.5.1",
     "jspdf": "^1.5.3",
     "mongoose": "^5.9.12",
-    "normalize-url": "^5.0.0",
+    "normalize-url": "^5.3.1",
     "request": "^2.88.2"
   },
   "engines": {
